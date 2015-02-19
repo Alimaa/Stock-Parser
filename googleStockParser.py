@@ -24,6 +24,8 @@ def parsePrice():
 def priceHist(startHr,startMin,endHr,endMin,secInt):
 
     t=[]
+    hr=[]
+    min=[]
     p=[]
     
     while ((time.localtime()[3:5]<=(endHr,endMin))&(time.localtime()[3:5]>=(startHr,startMin))):
@@ -31,18 +33,20 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
         if ((time.localtime()[5]%secInt)==0):
             
             t.append(time.localtime())
+	    hr.append(time.localtime()[3])
+	    min.append(time.localtime()[4])
             p.append(parsePrice())
             time.sleep(2)
     
-    data = {'time':t , 'price': p}
+    data = {'time':t , 'hour': hr , 'minute': min , 'price': p }
     df = pd.DataFrame(data)
     
     return(df)
   
 
-while time.localtime()[3:5]<(20,00):
+while time.localtime()[3:5]<(21,00):
 
-    df = priceHist(19,50,19,52,5)
+    df = priceHist(20,15,20,16,5)
 
     if df.empty==False:
        # print cnt
