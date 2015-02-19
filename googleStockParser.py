@@ -5,6 +5,10 @@ import pandas as pd
 import urllib2
 import smtplib
 
+#This program parse the stock price between specific hours and generate
+#a data frame
+
+
 def parsePrice():
     
     url = "http://www.google.com/finance?cid="+str(38688)
