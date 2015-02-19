@@ -44,14 +44,18 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
     return(df)
   
 
-while time.localtime()[3:5]<(21,00):
+while time.localtime()[3:5]<(13,30):
 
-    df = priceHist(20,15,20,16,5)
+    df = priceHist(06,30,13,00,5)
 
     if df.empty==False:
        # print cnt
         break
 print df
 
-df.to_csv('logData.csv')        
+time=time.localtime()
+
+fileName=str(time[0])+'_'+str(time[1])+'_'+str(time[2])+'.csv'
+
+df.to_csv(fileName)        
                 
