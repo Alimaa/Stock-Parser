@@ -18,7 +18,11 @@ def parsePrice():
     l = contents.find(string)
     x = l + len(string)
     
-    val = float(contents[x:x+6])
+    val = contents[x:x+6]
+    try:
+        val=float(val)
+    except:
+        print "Error: Could not convert to floating number..."
     return(val)
 
 def priceHist(startHr,startMin,endHr,endMin,secInt):
@@ -46,7 +50,7 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
 
 while time.localtime()[3:5]<(13,30):
 
-    df = priceHist(06,30,13,00,5)
+    df = priceHist(9,53,10,0,5)
 
     if df.empty==False:
        # print cnt
