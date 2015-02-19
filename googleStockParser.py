@@ -1,9 +1,9 @@
 import time
-import datetime
-import array
+#import datetime
+#import array
 import pandas as pd
 import urllib2
-import smtplib
+#import smtplib
 
 #This program parse the stock price between specific hours and generate
 #a data frame
@@ -40,13 +40,14 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
     return(df)
   
 
-while time.localtime()[3:5]<(17,00):
+while time.localtime()[3:5]<(20,00):
 
-    df = priceHist(6,30,13,00,5)
+    df = priceHist(19,50,19,52,5)
 
     if df.empty==False:
-        print cnt
+       # print cnt
         break
+print df
 
-        
+df.to_csv('logData.csv')        
                 
