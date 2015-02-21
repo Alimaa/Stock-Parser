@@ -3,6 +3,7 @@ import time
 #import array
 import pandas as pd
 import urllib2
+import os
 #import smtplib
 
 #This program parse the stock price between specific hours and generate
@@ -50,7 +51,7 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
 
 while time.localtime()[3:5]<(23,30):
 
-    df = priceHist(19,46,19,47,5)
+    df = priceHist(20,19,20,20,5)
 
     if df.empty==False:
        # print cnt
@@ -61,5 +62,7 @@ time=time.localtime()
 
 fileName=str(time[0])+'_'+str(time[1])+'_'+str(time[2])+'.csv'
 
+
+os.chdir('/home/pi/Python/Stock-Parser')
 df.to_csv(fileName)        
                 
