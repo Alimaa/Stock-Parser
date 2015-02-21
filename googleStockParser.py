@@ -48,9 +48,9 @@ def priceHist(startHr,startMin,endHr,endMin,secInt):
     return(df)
   
 
-while time.localtime()[3:5]<(13,30):
+while time.localtime()[3:5]<(23,30):
 
-    df = priceHist(9,53,10,0,5)
+    df = priceHist(19,46,19,47,5)
 
     if df.empty==False:
        # print cnt
